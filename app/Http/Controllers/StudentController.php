@@ -14,8 +14,8 @@ class StudentController extends Controller
         $students = User::with([
             'assignments'
         ])
-        ->orderBy('last_name', 'desc')
-        ->orderBy('first_name', 'desc')
+        ->orderBy('last_name', 'asc')
+        ->orderBy('first_name', 'asc')
         ->paginate(50);
 
         $response = $students->map(function($student) {
