@@ -16,7 +16,7 @@ class AssignmentTransformer extends TransformerAbstract
                     'id' => $video->id,
                     'name' => $video->name,
                     'duration' => $video->duration,
-                    'url' => env('APP_URL') . Storage::url($video->file)
+                    'url' => $video->url
                 ];
             })->toArray())
         ];
