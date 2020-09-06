@@ -21,6 +21,10 @@ class StudentController extends Controller
             'assignments',
             'assignments.videos'
         ])
+        ->when($request->input('q'), function($query, $q) {
+            $query->where('first_name', 'like', '%' . $q . '%');
+            $query->orWhere('last_name', 'like', '%' . $q . '%');
+        })
         ->orderBy('last_name', 'asc')
         ->orderBy('first_name', 'asc')
         ->paginate(25);
