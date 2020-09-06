@@ -5,18 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use App\Transformers\AssignmentTransformer;
 
 class StudentController extends Controller
 {
+    protected $assignment_transformer;
+    public function __construct(AssignmentTransformer $assignment_transformer) {
+        $this->assignment_transformer = $assignment_transformer;
+    }
+
     public function index(Request $request) {
         // DB::enableQueryLog();
         
         $students = User::with([
-            'assignments'
+            'assignments',
+            'assignments.videos'
         ])
         ->orderBy('last_name', 'asc')
         ->orderBy('first_name', 'asc')
-        ->paginate(50);
+        ->paginate(25);
 
         $response = $students->map(function($student) {
             return [
@@ -30,10 +37,7 @@ class StudentController extends Controller
                 'phone_number' => $student->phone_number,
                 'address' => $student->address,
                 'assignments' => $student->assignments->map(function($assignment) {
-                    return [
-                        'id' => $assignment->id,
-                        'name' => $assignment->name
-                    ];
+                    return $this->assignment_transformer->transform($assignment);
                 })
             ];
         });

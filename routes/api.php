@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/students', 'StudentController@index');
+Route::get('/assignments', 'AssignmentController@index');
