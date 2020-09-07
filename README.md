@@ -12,13 +12,13 @@ This API was made for demonstrative purposes.
 1. Clone the repository into your local environment 
     
     ```bash
-    git clone https://github.com/emi-arcioni/luca-demo-api
+    git clone https://github.com/emi-arcioni/luca-api
     ```
 
 1. Run composer to install the vendor libraries locally
 
     ```bash
-    luca-demo-api $ composer intall
+    luca-api $ composer intall
     ```
 
 1. Configure the .env file with MySQL database connection information. The variables that you have to look at are:
@@ -28,7 +28,7 @@ This API was made for demonstrative purposes.
 1. Run artisan migrate with seeder option
 
     ```bash
-    luca-demo-api $ php artisan migrate --seed
+    luca-api $ php artisan migrate --seed
     ```
 
     The seeder contains dummy data so it would be easier to test the performance of this API.
@@ -36,12 +36,12 @@ This API was made for demonstrative purposes.
 1. Turn on development server
 
     ```bash
-    luca-demo-api $ php artisan serve
+    luca-api $ php artisan serve
     ```
 
 ---
 
-## Available endpoints
+# Available endpoints
 
 ## Show Students
 
