@@ -21,7 +21,7 @@ This API was made for demonstrative purposes.
     luca-api $ composer intall
     ```
 
-1. Configure the .env file with MySQL database connection information. The variables that you have to look at are:
+1. Copy the file .env.example to .env, and configure it with MySQL database connection information. The variables that you have to look at are:
 
     ```DB_DATABASE```, ```DB_USERNAME``` and ```DB_PASSWORD```
 
